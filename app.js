@@ -12,14 +12,14 @@ app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json());
 const port = 8000;
 
-app.use(
-  cors({
-    origin: ["https://comfy-kangaroo-c54143.netlify.app"],
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true,
-    origin: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["https://comfy-kangaroo-c54143.netlify.app"],
+//     methods: ["GET", "POST", "DELETE"],
+//     credentials: true,
+//     origin: true,
+//   })
+// );
 
 app.post("/login", (req, res, err) => {
   if (err) {
