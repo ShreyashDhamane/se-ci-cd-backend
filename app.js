@@ -35,9 +35,12 @@ app.use(
     origin: true,
   })
 );
+
+// app.use("/api");
+
 const port = 8000;
 
-app.post("/login", (req, res, err) => {
+app.post("/api/login", (req, res, err) => {
   if (err) {
     //
   }
@@ -56,7 +59,7 @@ app.post("/login", (req, res, err) => {
     });
 });
 
-app.post("/register", (req, res, err) => {
+app.post("/api/register", (req, res, err) => {
   //   console.log("ola");
   if (err) {
     //
