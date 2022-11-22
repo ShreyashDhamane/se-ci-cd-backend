@@ -15,28 +15,27 @@ const { createNewUser, isValidUser } = require("./database.js");
 //   next();
 // });
 
-const corsOpts = {
-  origin: "*",
+// const corsOpts = {
+//   origin: "*",
 
-  methods: ["GET", "POST"],
+//   methods: ["GET", "POST"],
 
-  allowedHeaders: ["Content-Type"],
-};
+//   allowedHeaders: ["Content-Type"],
+// };
 
-app.use(cors(corsOpts));
+// app.use(cors(corsOpts));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: ["https://comfy-kangaroo-c54143.netlify.app"],
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+    origin: true,
+  })
+);
 const port = 8000;
-
-// app.use(
-//   cors({
-//     origin: ["https://comfy-kangaroo-c54143.netlify.app"],
-//     methods: ["GET", "POST", "DELETE"],
-//     credentials: true,
-//     origin: true,
-//   })
-// );
 
 app.post("/login", (req, res, err) => {
   if (err) {
